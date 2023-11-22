@@ -1,0 +1,23 @@
+.blog-post-card {
+  border: 1px solid #ddd;
+  padding: 16px;
+  margin: 8px;
+  text-decoration: none;
+  color: #333;
+  display: block;
+  transition: 0.3s ease-out;
+
+  &:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transform: scale(1.01);
+  }
+
+  h2 {
+    margin-bottom: 8px;
+  }
+
+  p {
+    color: #888;
+    font-size: 14px;
+  }
+}
