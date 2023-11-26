@@ -11,13 +11,15 @@ import { conflictResponse, successResponse } from "@/helpers/apiHelper"
  */
 export async function GET() {
   try {
-    const res = await fetch(`${process.env.STRAPI_URL}/blog-posts`, {
+    const res = await fetch(`${process.env.STRAPI_URL}/blog-posts?populate=*`, {
+      cache: "no-cache",
       headers: {
         accept: "application/json",
         Authorization: `${process.env.STRAPI_AUTH}`,
       },
     })
     const json = await res.json()
+
     return successResponse({ posts: json.data })
   } catch (e) {
     return conflictResponse()

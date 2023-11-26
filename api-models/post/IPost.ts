@@ -8,5 +8,12 @@ type IPost = {
     updatedAt: string
     publishedAt: string
     slug: string
+
+    author: {
+      data: IAuthor
+    }
+    tags: {
+      data: ITag[]
+    }
   }
 }

@@ -1,18 +1,14 @@
 import { API_URL } from "./servicesConfig"
 
-export async function get<Res>(
-  url: string,
-  cache?: "no-store" | "force-cache",
-  revalidate?: number
-): Promise<Res> {
+export async function get<Res>(url: string): Promise<Res> {
   return (
     await fetch(API_URL + url, {
       method: "GET",
-      //cache: cache ?? "no-store",
+      cache: "no-cache",
       headers: {
         "Content-Type": "application/json",
       },
-      next: { revalidate: revalidate ?? 0 },
+      //next: { revalidate: revalidate ?? 0 },
     })
   ).json() as Res
 }

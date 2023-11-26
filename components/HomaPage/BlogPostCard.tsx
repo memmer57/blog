@@ -10,7 +10,10 @@ export default function BlogPostCard({ post }: { post: IPost }) {
   return (
     <Link href={`/posts/${post.attributes.slug}`} className="blog-post-card">
       <h2>{post.attributes.title}</h2>
-      <p>{formattedDate}</p>
+      <div className="post-info-container">
+        <p>{formattedDate}</p>
+        <p>Author: {post.attributes.author.data.attributes.name}</p>
+      </div>
     </Link>
   )
 }
