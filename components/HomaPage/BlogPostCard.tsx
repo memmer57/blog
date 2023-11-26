@@ -12,7 +12,11 @@ export default function BlogPostCard({ post }: { post: IPost }) {
       <h2>{post.attributes.title}</h2>
       <div className="post-info-container">
         <p>{formattedDate}</p>
-        <p>Author: {post.attributes.author.data.attributes.name}</p>
+        <p>
+          Author:{" "}
+          {post.attributes.author &&
+            post.attributes.author.data.attributes.name}
+        </p>
       </div>
     </Link>
   )
