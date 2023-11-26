@@ -2,11 +2,8 @@ body {
   margin: 0;
   font-size: 16px;
 
-  @media screen and (max-width: 450px) {
-    font-size: 14px;
-  }
-
-  main {
+  main,
+  .nav-content {
     padding: 4rem;
     margin: 0 auto;
     width: 1200px;
@@ -21,8 +18,16 @@ body {
     }
 
     @media (max-width: 768px) {
-      width: 90%;
-      padding: 0;
+      width: 90vw;
+      padding: 2rem 0;
     }
+  }
+
+  @media screen and (max-width: 768px) {
+    font-size: 15px;
+  }
+
+  @media screen and (max-width: 450px) {
+    font-size: 14px;
   }
 }

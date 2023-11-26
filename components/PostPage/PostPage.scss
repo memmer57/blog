@@ -1,9 +1,34 @@
 .postpage {
   .post-wrapper {
+    h1 {
+      font-size: 2rem;
+      margin-top: 0;
+    }
+
+    h2 {
+      font-size: 1.4rem;
+      margin: 2rem 0 0.8rem;
+    }
+
+    p {
+      margin: 0;
+    }
+
     img {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      margin: 1rem 0;
+    }
+
+    @media screen and (max-width: 768px) {
+      h1 {
+        font-size: 1.6rem;
+      }
+
+      h2 {
+        font-size: 1.2rem;
+      }
     }
   }
 }
