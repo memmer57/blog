@@ -17,6 +17,7 @@ export async function GET() {
         accept: "application/json",
         Authorization: `${process.env.STRAPI_AUTH}`,
       },
+      next: { revalidate: 0 },
     })
     const json = await res.json()
 
