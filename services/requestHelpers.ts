@@ -8,7 +8,6 @@ export async function get<Res>(url: string): Promise<Res> {
       headers: {
         "Content-Type": "application/json",
       },
-      next: { revalidate: 0 },
     })
   ).json() as Res
 }
