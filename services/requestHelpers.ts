@@ -4,30 +4,11 @@ export async function get<Res>(url: string): Promise<Res> {
   return (
     await fetch(API_URL + url, {
       method: "GET",
-      cache: "no-cache",
+      cache: "no-store",
       headers: {
         "Content-Type": "application/json",
       },
       next: { revalidate: 0 },
-    })
-  ).json() as Res
-}
-
-export async function post<Res>(
-  url: string,
-  body: any,
-  cache?: "no-store" | "force-cache",
-  revalidate?: number
-): Promise<Res> {
-  return (
-    await fetch(API_URL + url, {
-      method: "POST",
-      //cache: cache ?? "no-store",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(body),
-      next: { revalidate: revalidate ?? 0 },
     })
   ).json() as Res
 }
