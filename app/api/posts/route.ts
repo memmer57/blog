@@ -1,5 +1,7 @@
 import { conflictResponse, successResponse } from "@/helpers/apiHelper"
 
+export const dynamic = "force-dynamic"
+
 /**
  * @swagger
  * /api/posts:
@@ -12,9 +14,9 @@ import { conflictResponse, successResponse } from "@/helpers/apiHelper"
 export async function GET() {
   try {
     const res = await fetch(`${process.env.STRAPI_URL}/blog-posts?populate=*`, {
-      cache: "no-store",
       headers: {
         accept: "application/json",
+        cache: "no-store",
         Authorization: `${process.env.STRAPI_AUTH}`,
       },
     })
