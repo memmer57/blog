@@ -9,11 +9,13 @@ type IPost = {
     slug: string
 
     createdBy: {
+      id: number
       firstname: string
       lastname: string
     }
 
     updatedBy: {
+      id: number
       firstname: string
       lastname: string
     }
