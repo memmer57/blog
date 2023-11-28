@@ -18,7 +18,7 @@ export default async function HomePage() {
     return (
       <div className="homepage">
         {sortedPosts
-          .filter((post) => post.attributes.createdBy.id === 1)
+          .filter((post) => post.attributes.createdBy.id === 4)
           .map((post) => (
             <BlogPostCard key={post.id} post={post} />
           ))}
