@@ -24,7 +24,7 @@ export default function HomePage() {
   return (
     <div className="home-page">
       {posts
-        .filter((post) => post.attributes.createdBy.id === 1)
+        .filter((post) => post.attributes.createdBy.id === 4)
         .map((post) => (
           <BlogPostCard key={post.id} post={post} />
         ))}
