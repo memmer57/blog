@@ -1,12 +1,12 @@
 import "@/styles/globals.scss"
 import type { Metadata } from "next"
-import { Inter } from "next/font/google"
+import { Inter, Lato, Montserrat, Nunito, Poppins } from "next/font/google"
 import { Analytics } from "@vercel/analytics/react"
 import Navbar from "@/components/Navbar"
 import { ThemeProvider } from "@/context/themeContext"
 import Background from "@/components/Background"
 
-const inter = Inter({ subsets: ["latin"] })
+const inter = Poppins({ subsets: ["latin"], weight: ["400", "700"] })
 
 export const metadata: Metadata = {
   title: "Memmerovo blog",

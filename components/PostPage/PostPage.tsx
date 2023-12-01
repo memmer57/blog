@@ -6,6 +6,7 @@ import { remark } from "remark"
 import html from "remark-html"
 import { useEffect, useState } from "react"
 import { useTheme } from "@/context/themeContext"
+import { formatDate } from "@/helpers/stringFormatHelper"
 
 export default function PostPage({ params }: { params: { post: string } }) {
   const [post, setPost] = useState<any>(null)
@@ -37,7 +38,7 @@ export default function PostPage({ params }: { params: { post: string } }) {
   return (
     <div className="postpage">
       <div className={`post-wrapper ${theme}`}>
-        <h1>{post.attributes.title}</h1>
+        <h1 className="top-header">{post.attributes.title}</h1>
         <div className="post-info-container">
           <div className="tag-container">
             {post.attributes.tags.data.map((tag: any) => (
@@ -50,9 +51,7 @@ export default function PostPage({ params }: { params: { post: string } }) {
               </span>
             ))}
           </div>
-          <div className="post-date">
-            {new Date(post.attributes.publishedAt).toLocaleDateString()}
-          </div>
+          <p className="post-date">{formatDate(post.attributes.publishedAt)}</p>
         </div>
         <div dangerouslySetInnerHTML={{ __html: postContentHtml }} />
       </div>

@@ -10,7 +10,7 @@ export default function Background() {
     return (
       <div className="dark-background">
         <div className="stars">
-          {[...Array(100)].map((_, i) => (
+          {[...Array(20)].map((_, i) => (
             <div key={i} className="star" />
           ))}
         </div>

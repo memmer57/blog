@@ -4,13 +4,10 @@ import React from "react"
 import Link from "next/link"
 import "./BlogPostCard.scss"
 import { useTheme } from "@/context/themeContext"
+import { formatDate } from "@/helpers/stringFormatHelper"
 
 export default function BlogPostCard({ post }: { post: IPost }) {
   const { theme } = useTheme()
-
-  const formattedDate = new Date(
-    post.attributes.publishedAt
-  ).toLocaleDateString()
 
   return (
     <Link
@@ -30,11 +27,17 @@ export default function BlogPostCard({ post }: { post: IPost }) {
         ))}
       </div>
       <div className="post-info-container">
-        <p>{formattedDate}</p>
-        {post.attributes.createdBy &&
-          post.attributes.createdBy.firstname +
-            " " +
-            post.attributes.createdBy.lastname}
+        <p>{formatDate(post.attributes.publishedAt)}</p>
+        {post.attributes.createdBy && (
+          <p>
+            Author:{" "}
+            <b>
+              {post.attributes.createdBy.firstname +
+                " " +
+                post.attributes.createdBy.lastname}
+            </b>
+          </p>
+        )}
       </div>
     </Link>
   )

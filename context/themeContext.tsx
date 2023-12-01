@@ -13,7 +13,7 @@ interface ThemeProviderProps {
 }
 
 export const ThemeContext = createContext<ThemeContextProps>({
-  theme: "light",
+  theme: "dark",
   setMode: () => {},
 })
 

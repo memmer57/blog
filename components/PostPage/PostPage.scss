@@ -1,25 +1,28 @@
 .postpage {
   .post-wrapper {
-    backdrop-filter: blur(7.5px);
-    border-radius: 5px;
-    padding: 10px;
+    backdrop-filter: blur(15px);
+    border-radius: 1rem;
+    padding: 4rem;
+
+    .top-header {
+      margin-bottom: 0;
+    }
 
     .post-info-container {
       display: flex;
       justify-content: space-between;
       align-items: center;
+      margin: 6px 0 2rem;
 
       .tag-container {
         display: flex;
         flex-wrap: wrap;
-        margin-top: 8px;
 
         .tag {
           background-color: #444;
           color: #fff;
           padding: 4px 8px;
-          margin-right: 8px;
-          margin-bottom: 8px;
+          margin: 0 8px 0 0;
           border-radius: 4px;
           font-size: 12px;
           font-weight: bold;
@@ -31,6 +34,8 @@
       .post-date {
         color: #888;
         font-size: 14px;
+        margin: 0;
+        font-weight: bold;
       }
     }
 
@@ -40,7 +45,7 @@
     }
 
     &.dark {
-      background-color: #000000aa;
+      background-color: #040404;
     }
 
     img {
