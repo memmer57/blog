@@ -22,7 +22,12 @@ export async function GET() {
     })
     const json = await res.json()
 
-    return successResponse({ posts: json.data })
+    return successResponse({
+      posts: json.data,
+      headers: {
+        "Access-Control-Allow-Origin": "*", // This allows requests from any origin
+      },
+    })
   } catch (e) {
     return conflictResponse()
   }
