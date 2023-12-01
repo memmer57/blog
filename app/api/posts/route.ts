@@ -13,20 +13,20 @@ export const dynamic = "force-dynamic"
  */
 export async function GET() {
   try {
-    const res = await fetch(`${process.env.STRAPI_URL}/blog-posts?populate=*`, {
-      headers: {
-        accept: "application/json",
-        cache: "no-store",
-        Authorization: `${process.env.STRAPI_AUTH}`,
-      },
-    })
+    const res = await fetch(
+      `https://blog-git-mrttnx-memmer57.vercel.app/blog-posts?populate=*`,
+      {
+        headers: {
+          accept: "application/json",
+          cache: "no-store",
+          Authorization: `${process.env.STRAPI_AUTH}`,
+        },
+      }
+    )
     const json = await res.json()
 
     return successResponse({
       posts: json.data,
-      headers: {
-        "Access-Control-Allow-Origin": "*", // This allows requests from any origin
-      },
     })
   } catch (e) {
     return conflictResponse()
