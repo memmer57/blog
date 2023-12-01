@@ -1,11 +1,23 @@
 .blog-post-card {
-  border: 1px solid #ddd;
-  padding: 16px 18px;
+  padding: 16px 24px;
   margin: 0.8rem 0;
   text-decoration: none;
-  color: #333;
+  backdrop-filter: blur(5px);
   display: block;
   transition: 0.3s ease-out;
+
+  &.light {
+    border: 1px solid #ddd;
+    color: #333;
+    background-color: #ffffff55;
+    backdrop-filter: blur(1.5px);
+  }
+
+  &.dark {
+    border: 1px solid #333;
+    color: #fff;
+    background-color: #33333355;
+  }
 
   &:hover {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -32,7 +44,7 @@
     margin-top: 8px;
 
     .tag {
-      background-color: rgb(223, 156, 13);
+      background-color: #444;
       color: #fff;
       padding: 4px 8px;
       margin-right: 8px;

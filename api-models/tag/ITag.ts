@@ -3,5 +3,6 @@ type ITag = {
   attributes: {
     name: string
     slug: string
+    color: string
   }
 }
