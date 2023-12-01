@@ -18,7 +18,7 @@ export const ThemeContext = createContext<ThemeContextProps>({
 })
 
 export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
-  const [theme, setTheme] = useState<string>("")
+  const [theme, setTheme] = useState<string>("dark")
 
   useEffect(() => {
     const localTheme = window.localStorage.getItem("theme")
