@@ -1,6 +1,6 @@
 import "@/styles/globals.scss"
 import type { Metadata } from "next"
-import { Inter, Lato, Montserrat, Nunito, Poppins } from "next/font/google"
+import { Poppins } from "next/font/google"
 import { Analytics } from "@vercel/analytics/react"
 import Navbar from "@/components/Navbar"
 import { ThemeProvider } from "@/context/themeContext"
