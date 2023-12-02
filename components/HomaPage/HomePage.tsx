@@ -4,6 +4,7 @@ import { requestAllPublishedPosts } from "@/services/api-services/blogService"
 import "./HomePage.scss"
 import BlogPostCard from "./BlogPostCard"
 import { useEffect, useState } from "react"
+import Loading from "../LoadingScreen"
 
 export default function HomePage() {
   const [posts, setPosts] = useState<any[]>([])
@@ -19,7 +20,7 @@ export default function HomePage() {
     })
   }, [])
 
-  if (!posts.length) return null
+  if (!posts.length) return <Loading />
 
   return (
     <div className="home-page">
