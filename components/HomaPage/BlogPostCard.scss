@@ -61,7 +61,15 @@
     padding: 10px 12px;
 
     h2 {
-      font-size: 1.2rem;
+      font-size: 1rem;
+    }
+
+    .post-info-container p {
+      font-size: 12px;
+
+      &.author {
+        display: none;
+      }
     }
   }
 }
