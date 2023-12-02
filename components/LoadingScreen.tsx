@@ -1,3 +1,4 @@
+import { useTheme } from "@/context/themeContext"
 import "./LoadingScreen.scss"
 
 interface IProps {
@@ -5,8 +6,14 @@ interface IProps {
 }
 
 export default function LoadingScreen(props: IProps) {
+  const { theme } = useTheme()
+
   return (
-    <div className={`loader-container ${props.isLoaded ? "fly-away" : ""}`}>
+    <div
+      className={`loader-container ${
+        props.isLoaded ? "fly-away" : ""
+      } ${theme}`}
+    >
       <div className="rocket-container">
         <div className="structure">
           <svg
