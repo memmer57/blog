@@ -4,7 +4,7 @@ import { requestAllPublishedPosts } from "@/services/api-services/blogService"
 import "./HomePage.scss"
 import BlogPostCard from "./BlogPostCard"
 import { useEffect, useState } from "react"
-import Loading from "../LoadingScreen"
+import LoadingScreen from "../LoadingScreen"
 
 export default function HomePage() {
   const [posts, setPosts] = useState<any[]>([])
@@ -20,10 +20,13 @@ export default function HomePage() {
     })
   }, [])
 
-  if (!posts.length) return <Loading />
+  if (posts.length === 0) {
+    return <LoadingScreen isLoaded={false} />
+  }
 
   return (
     <div className="home-page">
+      <LoadingScreen isLoaded={true} />
       {posts
         .filter((post) => post.attributes.createdBy.id === 4)
         .map((post) => (

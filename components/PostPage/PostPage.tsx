@@ -34,10 +34,11 @@ export default function PostPage({ params }: { params: { post: string } }) {
       })
   }, [post])
 
-  if (!post) return <LoadingScreen />
+  if (!post) return <LoadingScreen isLoaded={false} />
 
   return (
     <div className="postpage">
+      <LoadingScreen isLoaded={true} />
       <div className={`post-wrapper ${theme}`}>
         <h1 className="top-header">{post.attributes.title}</h1>
         <div className="post-info-container">

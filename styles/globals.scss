@@ -32,6 +32,7 @@ body {
   font-size: 16px;
   min-height: 100vh;
   scroll-behavior: smooth;
+  overflow-x: hidden;
 
   &.dark {
     color: #fff;

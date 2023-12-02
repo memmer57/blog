@@ -1,8 +1,12 @@
 import "./LoadingScreen.scss"
 
-export default function LoadingScreen() {
+interface IProps {
+  isLoaded: boolean
+}
+
+export default function LoadingScreen(props: IProps) {
   return (
-    <div className="loader-container">
+    <div className={`loader-container ${props.isLoaded ? "fly-away" : ""}`}>
       <div className="rocket-container">
         <div className="structure">
           <svg

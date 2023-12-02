@@ -5,7 +5,6 @@ import { Analytics } from "@vercel/analytics/react"
 import Navbar from "@/components/Navbar"
 import { ThemeProvider } from "@/context/themeContext"
 import Background from "@/components/Background"
-import LoadingScreen from "@/components/LoadingScreen"
 
 const inter = Poppins({ subsets: ["latin"], weight: ["400", "700"] })
 
