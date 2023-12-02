@@ -29,7 +29,7 @@ export default function BlogPostCard({ post }: { post: IPost }) {
       <div className="post-info-container">
         <p>{formatDate(post.attributes.publishedAt)}</p>
         {post.attributes.createdBy && (
-          <p>
+          <p className="author">
             Author:{" "}
             <b>
               {post.attributes.createdBy.firstname +

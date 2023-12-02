@@ -7,6 +7,7 @@ import html from "remark-html"
 import { useEffect, useState } from "react"
 import { useTheme } from "@/context/themeContext"
 import { formatDate } from "@/helpers/stringFormatHelper"
+import LoadingScreen from "../LoadingScreen"
 
 export default function PostPage({ params }: { params: { post: string } }) {
   const [post, setPost] = useState<any>(null)
@@ -33,7 +34,7 @@ export default function PostPage({ params }: { params: { post: string } }) {
       })
   }, [post])
 
-  if (!post) return null
+  if (!post) return <LoadingScreen />
 
   return (
     <div className="postpage">

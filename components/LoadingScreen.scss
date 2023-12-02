@@ -1,0 +1,169 @@
+$background-color: #212526;
+$particles-color: #fff;
+$rocket-primarycolor: #ffd700;
+$rocket-secondarycolor: #f44336;
+$nbsmoketail: 10; // don't forget to change in component too!!
+
+.loader-container {
+  .structure,
+  .smoke {
+    position: absolute;
+    z-index: 1000;
+    top: calc(50% - 50px);
+    left: calc(50% - 100px);
+    width: 200px;
+    height: 130px;
+  }
+
+  .smoke {
+    z-index: 999;
+  }
+
+  .structure {
+    transform: translate3d(0, 0, 0);
+    perspective: 1000px;
+    animation: shake 0.42s cubic-bezier(0.36, 0.07, 0.19, 0.97) both infinite;
+  }
+
+  .text-container {
+    position: absolute;
+    top: calc(50% + 100px);
+    left: calc(50% - 100px);
+    width: 200px;
+
+    h2 {
+      width: 100%;
+      text-align: center;
+      font-family: "Roboto Condensed", sans-serif;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: $particles-color;
+    }
+  }
+
+  #rocket-svg {
+    position: absolute;
+    top: -112px;
+    transform: rotate(90deg);
+    z-index: 1000;
+  }
+
+  #right-wing,
+  #left-wing,
+  #nose,
+  #window-stroke,
+  #middle-wing {
+    fill: $rocket-secondarycolor;
+  }
+
+  #rocket-main-part {
+    fill: $rocket-primarycolor;
+  }
+
+  #window-inner {
+    fill: $background-color;
+  }
+
+  .smoke span {
+    position: absolute;
+    width: 50px;
+    border-bottom: 2px solid $particles-color;
+    z-index: 950;
+  }
+
+  @for $i from 0 to $nbsmoketail {
+    $top: 28 + (8 * $i) + px;
+    $leftStart: -50 + px;
+    $leftEnd: -50 - random(250) + px;
+    $speed: (random(10) + 3)/20;
+
+    .smoke span:nth-child(#{$i + 1}) {
+      top: $top;
+      left: $leftStart;
+      box-shadow: 0px 0px 5px $particles-color;
+      animation: smokeAnim-#{$i} ease-out ($speed + s) infinite;
+    }
+    @keyframes smokeAnim-#{$i} {
+      from {
+        left: $leftStart;
+        opacity: 1;
+      }
+      to {
+        left: $leftEnd;
+        opacity: 0;
+      }
+    }
+  }
+
+  @keyframes shake {
+    10%,
+    90% {
+      transform: translate3d(-1px, 1px, 0);
+    }
+    20%,
+    80% {
+      transform: translate3d(2px, 2px, 0);
+    }
+    30%,
+    50%,
+    70% {
+      transform: translate3d(-2px, -2px, 0);
+    }
+    40%,
+    60% {
+      transform: translate3d(2px, 2px, 0);
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    @for $i from 0 to $nbsmoketail {
+      $topStart: -50px;
+      $topEnd: 100%;
+      $left: (10 * $i) + px;
+      $speed: (random(10) + 3) / 20;
+      $delay: $i * 0.001s; // Add a delay to stagger the animation
+
+      .smoke span:nth-child(#{$i + 1}) {
+        top: $topStart;
+        left: $left;
+        box-shadow: 0px 0px 5px $particles-color;
+        animation: smokeAnim-#{$i} ease-out ($speed + s) $delay infinite;
+      }
+
+      @keyframes smokeAnim-#{$i} {
+        from {
+          top: $topStart;
+          opacity: 1;
+        }
+        to {
+          top: $topEnd;
+          opacity: 0;
+        }
+      }
+    }
+
+    .smoke {
+      width: 130px;
+      height: 200px;
+      top: 250px;
+      left: 47px;
+    }
+
+    .structure {
+      width: 223px;
+      left: calc(50% - 110px);
+    }
+
+    .smoke span {
+      transform: rotate(90deg);
+    }
+
+    .text-container {
+      margin-top: 80px;
+    }
+
+    #rocket-svg {
+      transform: rotate(0deg);
+    }
+  }
+}
