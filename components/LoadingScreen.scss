@@ -41,6 +41,16 @@ $nbsmoketail: 10; // don't forget to change in component too!!
     }
   }
 
+  &.fly-away {
+    .structure {
+      animation: flyAway 1s ease-in forwards;
+    }
+
+    .text-container {
+      animation: opacity 0.7s ease-in forwards;
+    }
+  }
+
   #rocket-svg {
     position: absolute;
     top: -112px;
@@ -95,6 +105,29 @@ $nbsmoketail: 10; // don't forget to change in component too!!
     }
   }
 
+  @keyframes flyAway {
+    0% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+    99% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateX(75vw);
+      opacity: 0;
+    }
+  }
+
+  @keyframes opacity {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+
   @keyframes shake {
     10%,
     90% {
@@ -116,6 +149,30 @@ $nbsmoketail: 10; // don't forget to change in component too!!
   }
 
   @media screen and (max-width: 768px) {
+    .smoke {
+      width: 130px;
+      height: 200px;
+      top: 250px;
+      left: 47px;
+    }
+
+    .structure {
+      width: 223px;
+      left: calc(50% - 110px);
+    }
+
+    .smoke span {
+      transform: rotate(90deg);
+    }
+
+    .text-container {
+      margin-top: 80px;
+    }
+
+    #rocket-svg {
+      transform: rotate(0deg);
+    }
+
     @for $i from 0 to $nbsmoketail {
       $topStart: -50px;
       $topEnd: 100%;
@@ -142,28 +199,18 @@ $nbsmoketail: 10; // don't forget to change in component too!!
       }
     }
 
-    .smoke {
-      width: 130px;
-      height: 200px;
-      top: 250px;
-      left: 47px;
-    }
-
-    .structure {
-      width: 223px;
-      left: calc(50% - 110px);
-    }
-
-    .smoke span {
-      transform: rotate(90deg);
-    }
-
-    .text-container {
-      margin-top: 80px;
-    }
-
-    #rocket-svg {
-      transform: rotate(0deg);
+    @keyframes flyAway {
+      0% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+      99% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-80vh);
+        opacity: 0;
+      }
     }
   }
 }
